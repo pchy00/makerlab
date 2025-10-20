@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+requests
+numpy
+opencv-python-headless
+requests
+jinja2
+python-multipart
+
+# then run pip install -r requirements.txt

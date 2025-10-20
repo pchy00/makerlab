@@ -1,0 +1,21 @@
+{% for s in shelves %}
+  {% set color = {'ok':'#18a957','low':'#f4a21a','out':'#d64545'}[s.status] %}
+  <a href="/shelf/{{ s.key }}" class="block">
+    <div class="card rounded-xl border border-slate-200 p-4 hover:border-indigo-300 transition">
+      <div class="text-sm font-semibold text-slate-800">{{ s.name }}</div>
+
+      <div class="mt-2 flex items-center gap-2 text-sm">
+        <span class="inline-block w-2.5 h-2.5 rounded-full"
+        style="background-color: {{ color }};"></span>  
+        <span class="uppercase text-slate-600">{{ s.status }}</span>
+      </div>
+
+      <div class="mt-2 flex items-baseline gap-2">
+        <div class="text-3xl font-semibold tabular-nums">{{ s.count }}</div>
+        <div class="text-slate-400 text-sm">of {{ s.capacity }}</div>
+      </div>
+
+      <div class="mt-2 text-[11px] text-slate-400">updated {{ s.updated_at }}</div>
+    </div>
+  </a>
+{% endfor %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}ShelfCam • Live{% endblock %}
+{% block body %}
+  <a href="/" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">‹ Back</a>
+  <h2 class="text-xl font-semibold mt-2">Live</h2>
+
+  <div class="mt-3 border rounded-xl overflow-hidden">
+    <img id="v" src="/live.jpg"
+         class="w-full h-auto block"
+         alt="Live overlay feed"/>
+  </div>
+
+  <script>
+    // keep live.jpg fresh; ~4 Hz is plenty (your server already draws ~5 Hz)
+    setInterval(()=>{
+      const v=document.getElementById('v');
+      v.src='/live.jpg?ts='+Date.now();
+    }, 250);
+  </script>
+{% endblock %}

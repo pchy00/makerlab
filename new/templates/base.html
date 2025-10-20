@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}ShelfCam{% endblock %}</title>
+
+  <!-- Tailwind CDN (easy mode). For production, you can self-host. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- HTMX for live partial refreshes -->
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+
+  <link rel="stylesheet" href="/static/app.css" />
+  <style>
+    /* subtle card shadow + rounded */
+    .card{ box-shadow: 0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.10); }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <div class="max-w-6xl mx-auto px-4 py-6">
+    {% block body %}{% endblock %}
+  </div>
+</body>
+</html>
